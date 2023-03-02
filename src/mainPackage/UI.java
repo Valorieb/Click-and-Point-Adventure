@@ -235,6 +235,10 @@ public class UI {
         lanternIcon = new ImageIcon(image);
         lanternLabel.setIcon(lanternIcon);
         inventoryPanel.add(lanternLabel);
+        
+        //I coded the icon sizes into the program here 
+        //because Java's idea of 35 x 35 pixels is not the same as my file explorer's idea of 35 x 35
+        //It wouldn't display sword1.png until I did this (even though my computer told me it was the right size).
 		
 		
 		
