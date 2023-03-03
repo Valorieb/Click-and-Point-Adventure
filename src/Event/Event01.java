@@ -47,13 +47,14 @@ public class Event01 {
 		if(gm.player.hasShield==0) {
 			if(gm.player.hasSword==0) {
 				if(gm.player.playerLife!=1) {
-				gm.ui.messageText.setText("GUARD: Hey, don't be stupid!\n(The guard hits you back and your life decreases by 1)");
+				gm.ui.messageText.setText("GUARD: Hey, don't be stupid!");
 				gm.player.playerLife--;
 				
 				}
 				else if(gm.player.playerLife==1) {
-					gm.ui.messageText.setText("GUARD: What a fool!\n(The guard hits you back and you are dead)");
+					gm.ui.messageText.setText("GUARD: What a fool.");
 					gm.player.playerLife--;
+					gm.sChanger.showGameOverScreen(1);
 					
 				}
 				

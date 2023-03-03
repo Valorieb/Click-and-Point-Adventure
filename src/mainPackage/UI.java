@@ -34,6 +34,10 @@ public class UI {
 	JPanel inventoryPanel;
 	public JLabel swordLabel, shieldLabel, lanternLabel;
 	
+	//GAME OVER UI
+	public JLabel titleLabel;
+	public JButton restartButton;
+	
 	//We want a UI for the entire program.
 	//Passing the launcher class as a parameter allows modification of the ENTIRE program.
 	
@@ -43,6 +47,7 @@ public class UI {
 		//when the program is launched the window will be created and a screen displayed
 		createMainField();
 		createPlayerField();
+		createGameOverField();
 		generateScene();
 		
 		
@@ -78,6 +83,7 @@ public class UI {
 		bgPanel[bgNum].setBounds(50,50,700,350);
 		bgPanel[bgNum].setBackground(Color.blue);
 		bgPanel[bgNum].setLayout(null);
+		bgPanel[bgNum].setVisible(false);
 		window.add(bgPanel[bgNum]);
 		
 		bgLabel[bgNum] = new JLabel();
@@ -244,6 +250,26 @@ public class UI {
 		
 		
 		window.add(inventoryPanel);
+	}
+	
+	public void createGameOverField() {
+		
+		titleLabel = new JLabel("",JLabel.CENTER);
+		titleLabel.setBounds(200,150,400,200);
+		titleLabel.setForeground(Color.red);
+		titleLabel.setFont(new Font("Times New Roman", Font.PLAIN, 70));
+		window.add(titleLabel);
+		
+		restartButton = new JButton();
+		restartButton.setBounds(340,320,120,50);
+		restartButton.setBorder(null);
+		restartButton.setBackground(null);
+		restartButton.setForeground(Color.white);
+		restartButton.setFocusPainted(false);
+		restartButton.addActionListener(gm.aHandler);
+		restartButton.setActionCommand("restart");
+		restartButton.setVisible(false);
+		window.add(restartButton);
 	}
 	
 	//the generateScreen method consists of createBackground methods and createObject methods

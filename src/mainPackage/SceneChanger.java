@@ -32,4 +32,19 @@ public void showScene3() {
 			+ "***This is the end of the demo. Thank you for Playing!!!***");
 }
 
+public void showGameOverScreen(int currentBgNum) {
+	gm.ui.bgPanel[currentBgNum].setVisible(false);
+	gm.ui.titleLabel.setVisible(true);
+	gm.ui.titleLabel.setText("YOU DIED");
+	gm.ui.restartButton.setVisible(true);
+	gm.ui.restartButton.setText("Click here to restart");
+	
+}
+public void exitGameOverScreen() {
+	
+	gm.ui.titleLabel.setVisible(false);
+	gm.ui.restartButton.setVisible(false);
+	gm.player.setPlayerDefaultStatus();
+}
+
 }
