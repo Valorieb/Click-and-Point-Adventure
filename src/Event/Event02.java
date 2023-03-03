@@ -52,6 +52,7 @@ public class Event02 {
 		gm.ui.messageText.setText("You find a lantern!");
 		gm.player.hasLantern = 1;
 		gm.player.updatePlayerStatus();
+		gm.playSE(gm.success);
 		}
 		else {
 			gm.ui.messageText.setText("There's nothing there.");

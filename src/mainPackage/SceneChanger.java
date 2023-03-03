@@ -13,6 +13,10 @@ public class SceneChanger {
 		gm.ui.bgPanel[1].setVisible(true);
 		gm.ui.bgPanel[2].setVisible(false);
 		gm.ui.messageText.setText("Let's defeat the Demon Lord and save the world!");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic;
+		gm.playMusic(gm.currentMusic);
 	}
 	
 public void showScene2() {
@@ -22,6 +26,10 @@ public void showScene2() {
 		gm.ui.bgPanel[3].setVisible(false);
 		
 		gm.ui.messageText.setText("This is scene 2");
+		
+		gm.stopMusic(gm.currentMusic);
+		gm.currentMusic = gm.fieldMusic2;
+		gm.playMusic(gm.currentMusic);
 	}
 
 public void showScene3() {
@@ -33,11 +41,18 @@ public void showScene3() {
 }
 
 public void showGameOverScreen(int currentBgNum) {
+	
+	
 	gm.ui.bgPanel[currentBgNum].setVisible(false);
 	gm.ui.titleLabel.setVisible(true);
 	gm.ui.titleLabel.setText("YOU DIED");
 	gm.ui.restartButton.setVisible(true);
 	gm.ui.restartButton.setText("Click here to restart");
+	
+	gm.stopMusic(gm.currentMusic);
+	gm.playSE(gm.gameOver);
+	
+	
 	
 }
 public void exitGameOverScreen() {

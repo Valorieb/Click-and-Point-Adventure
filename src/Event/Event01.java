@@ -25,6 +25,7 @@ public class Event01 {
 			gm.ui.messageText.setText("You rest at the house. \n (Your health has been restored)");
 			gm.player.playerLife++;
 			gm.player.updatePlayerStatus();
+			gm.playSE(gm.heal);
 			
 		}
 		else {
@@ -41,6 +42,7 @@ public class Event01 {
 	
 	public void talkGuard() {
 		gm.ui.messageText.setText("GUARD: Don't go any further without a weapon!\nYou should check the chest over there!");
+		gm.playSE(gm.guard_01);
 	}
 	
 	public void attackGuard() {
@@ -49,24 +51,30 @@ public class Event01 {
 				if(gm.player.playerLife!=1) {
 				gm.ui.messageText.setText("GUARD: Hey, don't be stupid!");
 				gm.player.playerLife--;
+				gm.playSE(gm.guard_05);
+				gm.playSE(gm.slash);
 				
 				}
 				else if(gm.player.playerLife==1) {
 					gm.ui.messageText.setText("GUARD: What a fool.");
 					gm.player.playerLife--;
 					gm.sChanger.showGameOverScreen(1);
+					gm.playSE(gm.guard_02);
 					
 				}
 				
 			}
 			else if(gm.player.hasSword==1) {
-				gm.ui.messageText.setText("GUARD: Ouch! Who told you where to find that sword?\n(You have defeated the guard and taken his shield!)");
+				gm.ui.messageText.setText("GUARD: OUCH! Who told you where to find that sword?\n(You have defeated the guard and taken his shield!)");
 				gm.player.hasShield=1;
+				gm.playSE(gm.guard_04);
+				gm.playSE(gm.success);
 			}
 			gm.player.updatePlayerStatus();
 		}
 		else {
 			gm.ui.messageText.setText("GUARD: Just leave me alone.");
+			gm.playSE(gm.guard_03);
 		}
 	}
 	
@@ -84,6 +92,7 @@ public class Event01 {
 		gm.ui.messageText.setText("You open the chest and find a sword!");
 		gm.player.hasSword=1;
 		gm.player.updatePlayerStatus();
+		gm.playSE(gm.success);
 		}
 		else {
 			gm.ui.messageText.setText("Empty");
