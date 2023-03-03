@@ -265,6 +265,12 @@ public class UI {
 		createArrowButton(2,650,150,50,50,"right-arrow1.png", "goScene1");
 		bgPanel[2].add(bgLabel[2]);
 		
+		
+		//SCENE 3
+		
+				createBackground(3, "cave-inside.png");
+				createArrowButton(3,650,150,50,50,"right-arrow1.png", "goScene2");
+				bgPanel[3].add(bgLabel[3]);
 	}
 	
 }
